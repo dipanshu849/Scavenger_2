@@ -1,0 +1,35 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "scavenger-54568",
+          "appId": "1:572849529524:android:30854d4e9b4e3c25446de1",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "scavenger-54568",
+          "configurations": {
+            "android": "1:572849529524:android:30854d4e9b4e3c25446de1",
+            "ios": "1:572849529524:ios:06ef6849e435f1d5446de1"
+          }
+        }
+      }
+    }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "venv",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
+    }
+  ]
+}

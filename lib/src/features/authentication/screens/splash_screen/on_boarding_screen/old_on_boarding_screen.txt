@@ -1,0 +1,175 @@
+import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/get_instance.dart';
+// import 'package:get/get_state_manager/get_state_manager.dart';s
+import 'package:liquid_swipe/liquid_swipe.dart';
+import 'package:scavenger_2/src/constants/colors.dart';
+import 'package:scavenger_2/src/constants/image_strings.dart';
+import 'package:scavenger_2/src/constants/sizes.dart';
+import 'package:scavenger_2/src/constants/text_strings.dart';
+import 'package:scavenger_2/src/features/authentication/controllers/on_boarding_controller.dart';
+
+class OnBoardingScreen extends StatelessWidget {
+  OnBoardingScreen({super.key});
+
+  final controller = LiquidController();
+  final onBoardingController = Get.put(OnBoardingController());
+
+  @override
+  Widget build(BuildContext context) {
+    final Size size = MediaQuery.sizeOf(context);
+
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          alignment: Alignment.center,
+          children: [
+            LiquidSwipe(
+              pages: [
+                Container(
+                  padding: const EdgeInsets.all(DefaultSize),
+                  width: double.infinity,
+                  height: double.infinity,
+                  color: onBoardingPage1Color,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image(
+                        image: const AssetImage(onBoardingImage1),
+                        height: size.height * 0.5,
+                      ),
+                      Column(
+                        children: [
+                          Text(OnBoardingTitle1,
+                              style:
+                                  Theme.of(context).textTheme.headlineMedium),
+                          const Text(
+                            OnBoardingSubTitle1,
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                      Text(
+                        OnBoardingCounter1,
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(DefaultSize),
+                  width: double.infinity,
+                  height: double.infinity,
+                  color: onBoardingPage2Color,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image(
+                        image: const AssetImage(onBoardingImage2),
+                        height: size.height * 0.5,
+                      ),
+                      Column(
+                        children: [
+                          Text(OnBoardingTitle2,
+                              style:
+                                  Theme.of(context).textTheme.headlineMedium),
+                          const Text(
+                            OnBoardingSubTitle2,
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                      Text(
+                        OnBoardingCounter2,
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(DefaultSize),
+                  width: double.infinity,
+                  height: double.infinity,
+                  color: onBoardingPage3Color,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image(
+                        image: const AssetImage(onBoardingImage2),
+                        height: size.height * 0.5,
+                      ),
+                      Column(
+                        children: [
+                          Text(OnBoardingTitle3,
+                              style:
+                                  Theme.of(context).textTheme.headlineMedium),
+                          const Text(
+                            OnBoardingSubTitle3,
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                      Text(
+                        OnBoardingCounter3,
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+              liquidController: controller,
+              onPageChangeCallback: (index) {
+                // Call the controller's callback and pass the page index
+                // onBoardingController.onPageChangeCallback(index, controller);
+              },
+              slideIconWidget: const Icon(Icons.arrow_back_ios),
+              enableSideReveal: false,
+            ),
+            // Positioned(
+            //     //Trying to make mannual button check later
+            //     bottom: 60,
+            //     child: OutlinedButton(
+            //       onPressed: () {
+            //         int nextPage = controller.currentPage + 1;
+            //         controller.animateToPage(page: nextPage);
+            //       },
+            //       child: Container(
+            //           padding: EdgeInsets.all(20),
+            //           decoration: BoxDecoration(
+            //             color: BlackColor,
+            //             shape: BoxShape.circle,
+            //           ),
+            //           child: Icon(Icons.arrow_forward_ios)),
+            //       style: ElevatedButton.styleFrom(
+            //         side: BorderSide(color: Colors.black26),
+            //         shape: CircleBorder(),
+            //         padding: EdgeInsets.all(20),
+            //       ),
+            //     )),
+            // Positioned(
+            //     bottom: 60,
+            //     child: Obx(
+            //       () => AnimatedSmoothIndicator(
+            //         activeIndex: controller.currentPage,
+            //         count: 3,
+            //         effect: const WormEffect(
+            //           activeDotColor: SecondaryColor,
+            //           dotHeight: 5.0,
+            //         ),
+            //       ),
+            //     ))
+          ],
+        ),
+      ),
+    );
+  }
+}
